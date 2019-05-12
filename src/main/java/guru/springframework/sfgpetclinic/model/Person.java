@@ -9,8 +9,7 @@ public class Person {
 		
 	}
 	
-	
-	public String getFirstName() {
+	public String getFirstName()	 {
 		return firstName;
 	}
 
