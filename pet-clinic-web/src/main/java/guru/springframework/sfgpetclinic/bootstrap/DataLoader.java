@@ -11,10 +11,12 @@ import guru.springframework.sfgpetclinic.model.Pet;
 import guru.springframework.sfgpetclinic.model.PetType;
 import guru.springframework.sfgpetclinic.model.Specialty;
 import guru.springframework.sfgpetclinic.model.Vet;
+import guru.springframework.sfgpetclinic.model.Visit;
 import guru.springframework.sfgpetclinic.services.OwnerService;
 import guru.springframework.sfgpetclinic.services.PetTypeService;
 import guru.springframework.sfgpetclinic.services.SpecialtyService;
 import guru.springframework.sfgpetclinic.services.VetService;
+import guru.springframework.sfgpetclinic.services.VisitService;
 
 @Component
 public class DataLoader implements CommandLineRunner{
@@ -23,14 +25,16 @@ public class DataLoader implements CommandLineRunner{
 	private final VetService vetService;
 	private final PetTypeService petTypeService;
 	private final SpecialtyService specialtySevice;
+	private final VisitService visitService;
 
 	//@Autowired can be ignored as form Spring 4.2 its automatically constructor autowired  
 	@Autowired
-	public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialtyService specialtySevice) {
+	public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialtyService specialtySevice, VisitService visitService) {
 		this.ownerService = ownerService;
 		this.vetService = vetService;
 		this.petTypeService = petTypeService;
 		this.specialtySevice = specialtySevice;
+		this.visitService = visitService;
 	}
 
 	@Override
@@ -95,6 +99,13 @@ public class DataLoader implements CommandLineRunner{
         
         ownerService.save(owner2);
 
+        Visit catVisit = new Visit();
+        catVisit.setPet(FionasPet);
+        catVisit.setDescription("Sneezy Kitty");
+        catVisit.setDate(LocalDate.now());
+        
+        visitService.save(catVisit);
+        
         System.out.println("Loaded Owners....");
 
         Vet vet1 = new Vet();
