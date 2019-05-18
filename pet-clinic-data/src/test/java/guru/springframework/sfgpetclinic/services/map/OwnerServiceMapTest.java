@@ -1,4 +1,4 @@
-package guru.springframework.sfgpetclinic;
+package guru.springframework.sfgpetclinic.services.map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -8,9 +8,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import guru.springframework.sfgpetclinic.model.Owner;
-import guru.springframework.sfgpetclinic.services.map.OwnerServiceMap;
-import guru.springframework.sfgpetclinic.services.map.PetServiceMap;
-import guru.springframework.sfgpetclinic.services.map.PetTypeServiceMap;
 
 class OwnerServiceMapTest {
 
