@@ -35,11 +35,11 @@ public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> 
 	}
 	
 	void deleteById(ID id) {
-		map.remove(id, null);
+		map.remove(id);
 	}
 	
 	void delete(T object) {
-		map.entrySet().removeIf(entry -> entry.equals(object));
+		map.entrySet().removeIf(entry -> entry.getValue().equals(object));
 	}
 
 	private Long getNextId() {
